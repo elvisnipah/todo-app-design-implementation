@@ -36,7 +36,7 @@ function TodoInput(props) {
       <input
         type="text"
         placeholder="Create a new todo..."
-        className="focus:outline-none placeholder:text-sm bg-inherit placeholder:dark:text-[hsl(234,11%,52%)]"
+        className="focus:outline-none placeholder:text-sm bg-inherit placeholder:dark:text-[hsl(234,11%,52%)] w-auto"
         value={todoInfo.text}
         onChange={handleTextChange}
         onKeyDown={handleKeyPress}

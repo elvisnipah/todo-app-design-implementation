@@ -10,7 +10,7 @@ function TodoItem(props) {
         markComplete={props.markComplete}
         id={props.id}
       />
-      <p className="w-[70%] break-words">
+      <p className="max-w-[75%] break-words">
         {props.completed ? (
           <s className="dark:text-[hsl(233,14%,35%)]">{props.text}</s>
         ) : (

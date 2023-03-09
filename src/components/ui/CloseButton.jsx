@@ -4,7 +4,7 @@ import closeIcon from "../../assets/icon-cross.svg";
 function CloseButton(props) {
   return (
     <button
-      className="w-5 h-5 flex items-center justify-center"
+      className="w-5 h-5 flex items-center justify-center ml-auto"
       onClick={() => props.deleteTodo(props.id)}
     >
       <img src={closeIcon} alt="Close button" />
