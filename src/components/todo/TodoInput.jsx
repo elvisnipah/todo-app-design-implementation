@@ -31,12 +31,12 @@ function TodoInput(props) {
   };
 
   return (
-    <div className="mx-6 bg-white flex p-4 gap-4 items-center rounded-lg">
+    <div className="mx-6 bg-white dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)]  flex p-4 gap-4 items-center rounded-lg">
       <CheckButton disabled={true} />
       <input
         type="text"
         placeholder="Create a new todo..."
-        className="focus:outline-none placeholder:text-sm"
+        className="focus:outline-none placeholder:text-sm bg-inherit placeholder:dark:text-[hsl(234,11%,52%)]"
         value={todoInfo.text}
         onChange={handleTextChange}
         onKeyDown={handleKeyPress}

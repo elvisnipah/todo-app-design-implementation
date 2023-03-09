@@ -25,9 +25,9 @@ function TodoList(props) {
   });
 
   return (
-    <section className="bg-white mx-6 rounded-lg">
+    <section className="bg-white mx-6 rounded-xl dark:bg-[hsl(235,24%,19%)] overflow-hidden">
       {allTodos}
-      <div className="flex justify-between p-4 text-sm text-gray-400">
+      <div className="flex justify-between p-4 text-sm text-gray-400 dark:text-[hsl(233,14%,35%)]">
         <p>
           {itemsLeft} {itemsLeft === 1 ? "item" : "items"} left
         </p>

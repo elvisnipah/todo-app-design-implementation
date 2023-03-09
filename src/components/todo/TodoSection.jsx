@@ -7,6 +7,8 @@ import TodoList from "./TodoList";
 function TodoSection() {
   const [todos, setTodos] = useState([]);
 
+  const [view, setView] = useState("All");
+
   const addTodo = (newTodo) => {
     setTodos((prevTodos) => [newTodo, ...prevTodos]);
     console.log(todos);
@@ -38,17 +40,44 @@ function TodoSection() {
     );
   };
 
+  const activeTodos = todos.filter((todo) => todo.completed === false);
+
+  const completedTodos = todos.filter((todo) => todo.completed === true);
+
+  const showAll = () => {
+    setView("All");
+  };
+
+  const showActive = () => {
+    setView("Active");
+  };
+
+  const showCompleted = () => {
+    setView("Completed");
+  };
+
   return (
-    <section className="mt-[-100px] flex flex-col gap-4">
+    <section className="mt-[-100px] flex flex-col gap-4 pb-8 ">
       <TodoInput addTodo={addTodo} />
       <TodoList
-        todos={todos}
+        todos={
+          view === "All"
+            ? todos
+            : view === "Active"
+            ? activeTodos
+            : completedTodos
+        }
         markComplete={markComplete}
         deleteTodo={deleteTodo}
         clearCompleted={clearCompleted}
       />
-      <TodoFilter />
-      <p className="mx-6 text-center mt-4 text-sm text-gray-400">
+      <TodoFilter
+        currentView={view}
+        showAll={showAll}
+        showActive={showActive}
+        showCompleted={showCompleted}
+      />
+      <p className="mx-6 text-center mt-4 text-sm text-gray-400 dark:text-[hsl(233,14%,35%)]">
         Drag and drop to reorder list
       </p>
     </section>
