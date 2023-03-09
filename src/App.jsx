@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import TodoItem from "./components/todo/TodoItem";
 import TodoSection from "./components/todo/TodoSection";
 
 function App() {

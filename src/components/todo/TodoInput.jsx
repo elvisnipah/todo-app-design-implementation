@@ -32,14 +32,13 @@ function TodoInput(props) {
 
   return (
     <div className="mx-6 bg-white flex p-4 gap-4 items-center rounded-lg">
-      <CheckButton />
+      <CheckButton disabled={true} />
       <input
         type="text"
         placeholder="Create a new todo..."
-        className="focus:outline-none"
+        className="focus:outline-none placeholder:text-sm"
         value={todoInfo.text}
         onChange={handleTextChange}
-        // onBlur={() => props.addTodo(todoInfo)}
         onKeyDown={handleKeyPress}
       />
     </div>
