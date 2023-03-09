@@ -7,7 +7,11 @@ function Header() {
   return (
     <header
       className="bg-transparent flex py-8 px-6 justify-between text-white pb-32"
-      style={{ backgroundImage: `url(${bgMobileLight})` }}
+      style={{
+        backgroundImage: `url(${bgMobileLight})`,
+        // backgroundRepeat: "none",
+        // backgroundSize: "cover",
+      }}
     >
       <p className="text-2xl tracking-[0.3em] font-bold">TODO</p>
       <button>
