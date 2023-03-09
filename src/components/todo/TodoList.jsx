@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TodoItem from "./TodoItem";
 
 function TodoList(props) {
   let itemsLeft = 0;
 
   for (let i = 0; i < props.todos.length; i++) {
-    console.log(props.todos);
     if (props.todos[i].completed === false) {
       itemsLeft++;
     }
   }
 
-  const allTodos = props.todos.map((todo) => {
+  const allTodos = props.todos.map((todo, index) => {
     return (
       <TodoItem
         text={todo.text}
@@ -20,6 +19,10 @@ function TodoList(props) {
         id={todo.id}
         markComplete={props.markComplete}
         deleteTodo={props.deleteTodo}
+        dragStart={props.dragStart}
+        dragEnter={props.dragEnter}
+        drop={props.drop}
+        index={index}
       />
     );
   });

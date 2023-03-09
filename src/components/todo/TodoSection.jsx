@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import TodoFilter from "./TodoFilter";
 
 import TodoInput from "./TodoInput";
@@ -11,7 +11,6 @@ function TodoSection() {
 
   const addTodo = (newTodo) => {
     setTodos((prevTodos) => [newTodo, ...prevTodos]);
-    console.log(todos);
   };
 
   const markComplete = (id) => {
@@ -27,7 +26,6 @@ function TodoSection() {
         }
       })
     );
-    console.log(todos);
   };
 
   const deleteTodo = (id) => {
@@ -56,6 +54,27 @@ function TodoSection() {
     setView("Completed");
   };
 
+  const dragItem = useRef();
+  const dragOverItem = useRef();
+
+  const dragStart = (e, position) => {
+    dragItem.current = position;
+  };
+
+  const dragEnter = (e, position) => {
+    dragOverItem.current = position;
+  };
+
+  const drop = (e) => {
+    const copyTodos = [...todos];
+    const dragItemContent = copyTodos[dragItem.current];
+    copyTodos.splice(dragItem.current, 1);
+    copyTodos.splice(dragOverItem.current, 0, dragItemContent);
+    dragItem.current = null;
+    dragOverItem.current = null;
+    setTodos(copyTodos);
+  };
+
   return (
     <section className="mt-[-100px] flex flex-col gap-4 pb-8 ">
       <TodoInput addTodo={addTodo} />
@@ -70,6 +89,9 @@ function TodoSection() {
         markComplete={markComplete}
         deleteTodo={deleteTodo}
         clearCompleted={clearCompleted}
+        dragStart={dragStart}
+        dragEnter={dragEnter}
+        drop={drop}
       />
       <TodoFilter
         currentView={view}

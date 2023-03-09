@@ -21,6 +21,8 @@ function Header() {
       }
       style={{
         backgroundImage: `url(${darkMode ? bgMobileDark : bgMobileLight})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
       }}
     >
       <p className="text-3xl tracking-[0.3em] font-bold">TODO</p>

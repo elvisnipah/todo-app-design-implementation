@@ -4,7 +4,13 @@ import CloseButton from "../ui/CloseButton";
 
 function TodoItem(props) {
   return (
-    <div className="flex w-full gap-4 p-4 border-b-2 dark:border-[hsl(237,14%,26%)] dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)]">
+    <div
+      className="flex w-full gap-4 p-4 border-b-2 dark:border-[hsl(237,14%,26%)] dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)]"
+      draggable
+      onDragStart={(e) => props.dragStart(e, props.index)}
+      onDragEnter={(e) => props.dragEnter(e, props.index)}
+      onDragEnd={props.drop}
+    >
       <CheckButton
         checked={props.completed}
         markComplete={props.markComplete}
