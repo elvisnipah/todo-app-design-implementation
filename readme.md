@@ -1,6 +1,6 @@
 # Todo App
 
-Design implementation for frontend mentor challenge.
+Design implementation for frontend mentor challenge. <br>
 https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW
 
 # Tools used
@@ -13,7 +13,7 @@ https://todo-app-design-implementation.vercel.app/
 
 ## Possible improvements
 
--Use localstorage to save data to browser
--Implement firebase backend to store data in the cloud
--Implement sign up and login
+-Use localstorage to save data to browser <br>
+-Implement firebase backend to store data in the cloud <br>
+-Implement sign up and login <br>
 -Allow editing of todos
