@@ -5,7 +5,7 @@ import CloseButton from "../ui/CloseButton";
 function TodoItem(props) {
   return (
     <div
-      className="flex w-full gap-4 p-4 border-b-2 dark:border-[hsl(237,14%,26%)] dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)]"
+      className="flex w-full gap-4 p-4 border-b-2 text-gray-700 dark:border-[hsl(237,14%,26%)] dark:bg-[hsl(235,24%,19%)] dark:text-[hsl(234,39%,85%)] cursor-pointer group"
       draggable
       onDragStart={(e) => props.dragStart(e, props.index)}
       onDragEnter={(e) => props.dragEnter(e, props.index)}
@@ -18,7 +18,9 @@ function TodoItem(props) {
       />
       <p className="max-w-[75%] break-words">
         {props.completed ? (
-          <s className="dark:text-[hsl(233,14%,35%)]">{props.text}</s>
+          <s className="dark:text-[hsl(233,14%,35%)] text-gray-400">
+            {props.text}
+          </s>
         ) : (
           props.text
         )}

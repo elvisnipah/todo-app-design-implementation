@@ -1,4 +1,5 @@
 import React from "react";
+import TodoFilter from "./TodoFilter";
 import TodoItem from "./TodoItem";
 
 function TodoList(props) {
@@ -28,13 +29,26 @@ function TodoList(props) {
   });
 
   return (
-    <section className="bg-white mx-6 rounded-xl dark:bg-[hsl(235,24%,19%)] overflow-hidden">
+    <section className="bg-white mx-6 rounded-xl dark:bg-[hsl(235,24%,19%)] overflow-hidden md:rounded-none">
       {allTodos}
-      <div className="flex justify-between p-4 text-sm text-gray-400 dark:text-[hsl(233,14%,35%)]">
+      <div className="flex items-center justify-between p-4 text-sm text-gray-400 dark:text-[hsl(233,14%,35%)]">
         <p>
           {itemsLeft} {itemsLeft === 1 ? "item" : "items"} left
         </p>
-        <button onClickCapture={props.clearCompleted}>Clear Completed</button>
+        {props.windowSize >= 768 && (
+          <TodoFilter
+            currentView={props.currentView}
+            showAll={props.showAll}
+            showActive={props.showActive}
+            showCompleted={props.showCompleted}
+          />
+        )}
+        <button
+          onClickCapture={props.clearCompleted}
+          className="dark:hover:text-gray-50 hover:text-gray-700"
+        >
+          Clear Completed
+        </button>
       </div>
     </section>
   );

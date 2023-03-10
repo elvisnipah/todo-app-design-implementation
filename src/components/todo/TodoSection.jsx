@@ -4,7 +4,7 @@ import TodoFilter from "./TodoFilter";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 
-function TodoSection() {
+function TodoSection(props) {
   const [todos, setTodos] = useState([]);
 
   const [view, setView] = useState("All");
@@ -76,7 +76,7 @@ function TodoSection() {
   };
 
   return (
-    <section className="mt-[-100px] flex flex-col gap-4 pb-8 ">
+    <section className="mt-[-100px] flex flex-col gap-4 pb-8 md:w-[700px] md:mx-auto">
       <TodoInput addTodo={addTodo} />
       <TodoList
         todos={
@@ -92,13 +92,20 @@ function TodoSection() {
         dragStart={dragStart}
         dragEnter={dragEnter}
         drop={drop}
-      />
-      <TodoFilter
         currentView={view}
         showAll={showAll}
         showActive={showActive}
         showCompleted={showCompleted}
+        windowSize={props.windowSize}
       />
+      {props.windowSize < 768 && (
+        <TodoFilter
+          currentView={view}
+          showAll={showAll}
+          showActive={showActive}
+          showCompleted={showCompleted}
+        />
+      )}
       <p className="mx-6 text-center mt-4 text-sm text-gray-400 dark:text-[hsl(233,14%,35%)]">
         Drag and drop to reorder list
       </p>
